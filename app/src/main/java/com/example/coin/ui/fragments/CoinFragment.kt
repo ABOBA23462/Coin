@@ -16,19 +16,19 @@ class CoinFragment : BaseFragment<FragmentCoinBinding, CoinViewModel>(R.layout.f
 
     override val binding by viewBinding(FragmentCoinBinding::bind)
     override val viewModel: CoinViewModel by viewModels()
-    private val headlinesAdapter = CoinAdapter()
+    private val coinAdapter = CoinAdapter()
 
     override fun initialize() {
         binding.rvCoin.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = headlinesAdapter
+            adapter = coinAdapter
         }
     }
 
     override fun setupObserve() {
         lifecycleScope.launch {
             viewModel.fetchCoin().observe(viewLifecycleOwner) {
-                headlinesAdapter.submitList(it.rates)
+                coinAdapter.submitList(it.rates)
             }
         }
     }

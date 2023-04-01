@@ -16,9 +16,9 @@ class CoinAdapter : ListAdapter<CoinModel, CoinAdapter.ViewHolder>(
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(item: CoinModel?) = with(binding) {
-            one.text = item?.assetIdQuote
-            two.text = item?.rate.toString()
-            sri.text = item?.time
+            tvName.text = item?.assetIdQuote
+            tvNum.text = item?.rate.toString()
+            tvTime.text = item?.time
         }
     }
 
